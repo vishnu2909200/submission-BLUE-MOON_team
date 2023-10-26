@@ -6,6 +6,9 @@ SELLING LAND AND RENTAL HOUSE LOCATOR
 ### Problem Statement -Selling land and Rental house locator with the power by Google map platform
 ### Team Leader Email -reeshmashahiras21cb@psnacet.edu.in
 
+## A Brief of the Prototype:
+Selling land and Rental house locator is an innovative website, powered by Google Maps APIs, that redefines property buying and selling. With interactive maps, location-based search, virtual property viewing, and efficient property upload, it offers a seamless experience. Users can explore listings effortlessly, find properties based on their exact location, and take virtual tours. Our prototype enhances the property search process, making it efficient and enjoyable. This website is set to revolutionize the real estate market, simplifying the journey for both buyers and sellers, all through the trusted platform of Google Maps. This prototype involves cutting-edge technology with user-friendly design, offering a novel solution to age-old real estate challenges. SellingLand and RentalHouse Locator– the future of property search and showcasing.
+
 ## Tech Stack:
 ### 1.Front-end Development:
   HTML/CSS:For creating the app's web interface.
