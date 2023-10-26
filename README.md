@@ -16,9 +16,9 @@ Selling land and Rental house locator is an innovative website, powered by Googl
 
 ### 2. I)Google Maps JavaScript API: Integrated for interactive mapping and property display.
   II)Google's Geolocation API
-  III) Google's Street View API
-  IV) Google's Place Autocomplete API
-  V) 5.Google Maps APIs for Directions and Distance:
+  III) Google's Place Autocomplete API
+
+
     
   Development Tools:
     Visual Studio Code: The primary code editor.
@@ -26,6 +26,14 @@ Selling land and Rental house locator is an innovative website, powered by Googl
 
 ### 3.Google Analytics:   
   To track user engagement and app usage. This aligns with Google's analytical tools.
+
+
+  ## Step-by-Step Code Execution Instructions:
+  - download this code as same directory structure structure.
+  - change GOOGLE MAP API key:( in google map platform disple geolocation,places,js map to creat a API key ).
+  - run main.html
+    
+  
 
 
   ## Future Scope:
