@@ -25,9 +25,9 @@ SELLING LAND AND RENTAL HOUSE LOCATOR
   To track user engagement and app usage. This aligns with Google's analytical tools.
 
 
-  ##Future Scope:
-        The prototype for our real estate website has been designed with scalability in mind. As we move forward with development, it can easily adapt to handle a growing user base and expanding property 
-         listings.We've integrated cloud-based infrastructure to ensure seamless scalability, accommodating a larger volume of property listings and an increasing number of users.
+  ## Future Scope:
+  The prototype for our real estate website has been designed with scalability in mind. As we move forward with development, it can easily adapt to handle a growing user base and expanding property 
+  listings.We've integrated cloud-based infrastructure to ensure seamless scalability, accommodating a larger volume of property listings and an increasing number of users.
   ### Futuristic Aspects:
   - Virtual Reality View
   - Predictive Analytics
