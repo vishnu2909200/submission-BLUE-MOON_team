@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website with Sidebar Navigation</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    margin: 0;
+  }
+  
+  .sidebar {
+    height: 100vh;
+    width: 250px;
+    background-color: #85CDE3;
+    color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    
+  }
+  
+  .sidebar a {
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    color: #242222;
+    padding-top: 10px; 
+    border-radius: 5px;
+  }
+  
+  .sidebar a:hover {
+    background-color: #fafafa;
+  }
+  .sidebar a.ex1:link{
+    background-color: #d3d4da;
+}
+  
+  
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+    padding-bottom: 10px;
+  }
+  
+  .search-bar {
+    width: 800px;
+    padding: 10px;
+    border: 1px solid #9ecfde;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  #map {
+    height: 600px;
+    width:820px;
+    margin-bottom: 10px;
+  }
+  #b{
+    width: 150px;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+  
+  #profile-overlay {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  #profile-content {
+    background: #fff;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+</style>
+</head>
+<body>
+  <div class="sidebar">
+    <a href="main.html">Home</a>
+    <a href="profile.html" id="profile-link">Profile</a>
+    <a href="rental.html">Rental Properties</a>
+    <a href="selling.html" class="ex1">Selling Properties</a>
+    <a href="#">Logout</a>
+  </div>
+  <div class="content">
+    <input type="text" class="search-bar" placeholder="Search...">
+    <div id="map"></div>
+    <button id="b">Current Location</button>
+    <script>
+      document.getElementById('b').addEventListener('click', function() {
+        if (this.style.backgroundColor === 'rgb(0, 123, 255)') {
+          this.style.backgroundColor = '#fff'; /* New color on click */
+        } else {
+          this.style.backgroundColor = '#85CDE3'; /* Old color on click */
+        }  });</script>
+    </div>
+    
+  </div>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChQonxfYRg_Q36Cac7Y0uCLhg7QMArMnY&callback=initMap"></script>
+  <script src="script.js"></script>
+
+  <script>
+     function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat:10.347071809639163, lng:77.9827213126785},
+        zoom: 8
+      });
+
+       // Add an event listener to the map
+    map.addListener('click', function(event) {
+    updateMarker(event.latLng);
+    showAddLocationForm(event.latLng);
+
+    function updateMarker(location) {
+  // Remove previous marker (if any)
+  if (marker) {
+    marker.setMap(null);
+  }
+
+  // Add a new marker at the clicked location
+  marker = new google.maps.Marker({
+    position: location,
+    map: map
+  });
+
+
+  // Display the coordinates in the designated div
+var coordinatesDiv = document.getElementById('coordinates');
+coordinatesDiv.innerHTML = 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng();
+
+
+}
+
+    
+  });
+
+    }
+
+  
+    const storedProfile = JSON.parse(localStorage.getItem('profile'));
+    if (storedProfile) {
+      document.getElementById('name').value = storedProfile.name;
+      document.getElementById('email').value = storedProfile.email;
+      document.getElementById('Contact').value = storedProfile.Contact;
+    }
+
+    var profileLink = document.getElementById('profile-link');
+    var profileOverlay = document.getElementById('profile-overlay');
+    var closeProfileButton = document.getElementById('close-profile');
+    var profileForm = document.getElementById('profile-form');
+    var saveProfileButton = document.getElementById('save-profile');
+    var deleteProfileButton = document.getElementById('Delete-profile');
+    var saveMessage = document.getElementById('save-message');
+
+    profileLink.addEventListener('click', function() {
+      profileOverlay.style.display = 'block';
+    });
+
+    closeProfileButton.addEventListener('click', function() {
+      profileOverlay.style.display = 'none';
+    });
+    // Delete profile details
+  deleteProfileButton.addEventListener('click', function() {
+    localStorage.removeItem('profile');
+    // Clear the input fields
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('Contact').value = '';
+    document.getElementById('Address').value = '';
+    alert('Profile Deleted');
+  });
+
+    profileForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const Contact = document.getElementById('Contact').value;
+
+      // Check if all fields are filled
+      if (name && email && Contact) {
+        // Save profile details to local storage
+        const profile = {
+          name: name,
+          email: email,
+          Contact: Contact,
+        };
+        localStorage.setItem('profile', JSON.stringify(profile));
+        saveMessage.style.display = 'block';
+
+        // close the profile overlay after a delay 
+        setTimeout(function() {
+          profileOverlay.style.display = 'none';
+          saveMessage.style.display = 'none';
+        }, 2000);
+      } else {
+        alert('Please fill in all fields.');
+      }
+    });
+
+
+  </script>  
+
+
+
+
+
+</body>
+</html>

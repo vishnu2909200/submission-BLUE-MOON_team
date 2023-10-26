@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website with Sidebar Navigation</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    margin: 0;
+  }
+  
+  .sidebar {
+    height: 100vh;
+    width: 250px;
+    background-color: #85CDE3;
+    color: #fff;
+    padding-top: 40px;
+    padding: 20px;
+    border-radius: 5px;
+    
+  }
+  
+  .sidebar a {
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    color: #242222;
+    padding-top: 10px; 
+    border-radius: 5px;
+  }
+
+  
+  
+  .sidebar a:hover {
+    background-color: #fafafa;
+  }
+  
+  .sidebar a.ex1:link{
+    background-color: #d3d4da;
+}
+  
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+    padding-bottom: 10px;
+  }
+  
+
+</style>
+</head>
+<body>
+  <div class="sidebar">
+    <a href="main.html">Home</a>
+    <a href="profile.html" id="profile-link" class="ex1">Profile</a>
+    <a href="rental.html">Rental Properties</a>
+    <a href="selling.html">Selling Properties</a>
+    <a href="#">Logout</a>
+  </div>
+
+    
+  </div>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAD3tiZm_hqpMo5cyNfWM_UX8HVK3hIVM&callback=initMap" async defer></script>
+  <script src="script.js"></script>
+
+
+
+</body>
+</html>
